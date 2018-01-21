@@ -1,5 +1,6 @@
 .idea
 server/node_modules
+server/.env
 # Node build artifacts
 node_modules
 npm-debug.log

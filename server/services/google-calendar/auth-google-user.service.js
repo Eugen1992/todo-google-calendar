@@ -3,8 +3,8 @@ const OAuth2 = google.auth.OAuth2;
 
 module.exports = function (token) {
   const oauth2Client = new OAuth2(
-    "561976334891-r7elktn0f64jefp8c95q99jdoli6pgmu.apps.googleusercontent.com",
-    "BttgvgfUlojED-A-aTdU6kBz"
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET
   );
   oauth2Client.setCredentials({
     access_token: token

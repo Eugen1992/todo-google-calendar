@@ -9,6 +9,7 @@ var todos = require('./routes/todos');
 
 var app = express();
 
+require('dotenv').config();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
