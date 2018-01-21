@@ -1,0 +1,6 @@
+.redLink {
+  color: #b83f45;
+  display: inline-block;
+  margin: 15px 10px; }
+  .redLink:visited {
+    color: #b83f45; }
