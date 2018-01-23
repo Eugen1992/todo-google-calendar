@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import CreateTodo from '../../components/routes/create-todo';
 import { createTodo } from '../../utils/todos-data.js';
 

@@ -17,10 +17,11 @@ const remove = (id) => {
 
 const getByEmail = (email) => {
   return getMongoConnection().then((mongo) => {
-    return mongo.collection('todos').find({ user: email })
-      .then((result) => {
-        return result;
+    return new Promise((resolve) => {
+      mongo.collection('todos').find({ user: email }).toArray((err, results) => {
+        resolve(results);
       });
+    });
   });
 };
 

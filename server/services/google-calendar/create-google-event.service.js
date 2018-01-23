@@ -29,7 +29,6 @@ module.exports = function (data, token) {
         console.log('The API returned an error: ' + err);
         return;
       }
-      console.log('The API returned dataa');
       resolve(event.data);
     })
   }).then((event) => {

@@ -18,7 +18,7 @@ const connect = () => {
     });
   }).then((connection) => {
     isPromisePending = false;
-    dbConnection = connection;
+    dbConnection = connection.db('todo-google-calendar');
     return dbConnection;
   });
 
