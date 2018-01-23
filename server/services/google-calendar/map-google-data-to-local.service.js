@@ -1,5 +1,5 @@
 module.exports = function (googleEvent) {
-  const { created, start: { dateTime }, summary, description, id } = googleEvent;
+  const { created, start: { dateTime }, summary, description, id, creator: { email } } = googleEvent;
 
   return {
     id,
@@ -7,6 +7,7 @@ module.exports = function (googleEvent) {
     description,
     createdAt: created,
     startsAt: dateTime,
+    user: email,
   };
 };
 

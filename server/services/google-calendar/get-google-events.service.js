@@ -19,9 +19,10 @@ module.exports = function (token) {
         console.log('The API returned an error: ' + err);
         return;
       }
+      const user = response.data.summary;
       const events = response.data.items.filter(checkIsEventFromTodo)
         .map(mapGoogleDataToLocal);
-      resolve(events);
+      resolve({ events, user });
     });
   });
 };

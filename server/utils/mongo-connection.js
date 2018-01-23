@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/todo-google-calendar';
 
 let connectionPromise, isPromisePending, dbConnection;
 
@@ -18,7 +18,7 @@ const connect = () => {
     });
   }).then((connection) => {
     isPromisePending = false;
-    dbConnection = connection.db('todo-google-calendar');
+    dbConnection = connection;
     return dbConnection;
   });
 

@@ -15,7 +15,17 @@ const remove = (id) => {
   });
 };
 
+const getByEmail = (email) => {
+  return getMongoConnection().then((mongo) => {
+    return mongo.collection('todos').find({ user: email })
+      .then((result) => {
+        return result;
+      });
+  });
+};
+
 module.exports = {
   create,
   remove,
+  getByEmail,
 };
