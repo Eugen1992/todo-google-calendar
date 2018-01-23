@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoDetails from '../../components/routes/todo-details/TodoDetails';
+import Loader from '../../components/ui/loader';
 import { getSingleTodo } from '../../utils/todos-data.js';
 
 export default class TodoDetailsContainer extends React.Component {
@@ -19,8 +20,10 @@ export default class TodoDetailsContainer extends React.Component {
   }
   render() {
     const { todo, isLoading } = this.state;
+
+    if (isLoading) return (<Loader />);
     return (
-      <TodoDetails {...todo} isLoading={isLoading} />
+      <TodoDetails {...todo} />
     );
   }
 }

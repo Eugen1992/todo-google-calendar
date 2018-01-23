@@ -62,11 +62,13 @@
 
 .row {
   display: flex;
+  align-items: center;
   flex-direction: row; }
 
 .expand {
   display: inline-block;
   margin-top: 2px;
+  margin-left: 20px;
   transform: rotateZ(90deg);
   cursor: pointer; }
   .expand:before {

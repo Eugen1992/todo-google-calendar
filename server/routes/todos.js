@@ -45,4 +45,13 @@ router.delete('/:id',
   });
 
 
+router.put('/:id',
+  authorizationMiddleware,
+  (req, res) => {
+    todoModel.editById(req.params.id, req.body)
+      .then((todo) => {
+        res.send(todo);
+      });
+  });
+
 module.exports = router;

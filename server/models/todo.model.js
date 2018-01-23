@@ -25,8 +25,25 @@ const getByEmail = (email) => {
   });
 };
 
+
+const editById = (id, data) => {
+  return getMongoConnection().then((mongo) => {
+    return new Promise((resolve) => {
+      mongo.collection('todos').updateOne({ id }, { $set: data }).then((result) => {
+
+          return mongo.collection('todos').findOne({ id })
+            .then((result) => {
+              resolve(result);
+            });
+      });
+    });
+  });
+};
+
+
 module.exports = {
   create,
   remove,
   getByEmail,
+  editById,
 };

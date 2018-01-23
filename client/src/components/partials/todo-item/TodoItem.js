@@ -2,6 +2,7 @@ import React from 'react';
 import './TodoItem.css';
 import { Link } from 'react-router-dom';
 import TodoItemDetails from '../todo-item-details';
+import moment from 'moment';
 
 export default class TodoItem extends React.Component {
   constructor(...args) {
@@ -24,7 +25,7 @@ export default class TodoItem extends React.Component {
       <div className="container">
         <div className="row">
           <input checked={isChecked} type="checkbox" disabled className={isChecked ? 'toggle isChecked' : 'toggle'} />
-          <Link className="description" to={`details/${id}`}>{summary}</Link> Due: { dueDate }
+          <Link className="description" to={`details/${id}`}>{summary}</Link> <span> Due: { moment(dueDate).calendar() } </span>
           <span className="expand" onClick={this.toggle} />
         </div>
         <span className="close" onClick={onRemove} />

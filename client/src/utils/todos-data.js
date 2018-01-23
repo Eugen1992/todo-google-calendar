@@ -43,3 +43,16 @@ export const removeTodo = (id) => {
       return todos;
     });
 };
+
+
+export const editTodo = (id, data) => {
+  return axios.put(`/todos/${id}`, data)
+    .then((updatedTodo) => {
+      todos = todos.map((todo) => {
+        if (todo.id === updatedTodo.id) return updatedTodo;
+        return todo;
+      });
+
+      return todos;
+    });
+};

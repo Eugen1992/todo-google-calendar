@@ -8,7 +8,8 @@ import './App.css';
 
 import TodoListContainer from './containers/todo-list';
 import CreateTodo from './containers/create-todo';
-import TodoDetails from "./containers/todo-details/TodoDetailsContainer";
+import EditTodo from './containers/edit-todo';
+import TodoDetails from './containers/todo-details/TodoDetailsContainer';
 import { GoogleLogin } from 'react-google-login';
 import { ensureUserAuthorized, authorizeUser } from './utils/authorization';
 
@@ -31,6 +32,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={TodoListContainer}/>
           <Route exact path="/create" component={CreateTodo}/>
+          <Route exact path="/edit/:id" component={EditTodo}/>
           <Route exact path="/details/:id" component={TodoDetails}/>
         </Switch>
       </Router>
