@@ -2,7 +2,7 @@ const getMongoConnection = require('../utils/mongo-connection.js');
 
 const create = (data) => {
   return getMongoConnection().then((mongo) => {
-    return mongo.collection('todos').insertOne({ ...data, status: 0 })
+    return mongo.collection('todos').insertOne(Object.assign( data, { status: 0 }))
       .then((result) => {
         return result.ops[0];
       });

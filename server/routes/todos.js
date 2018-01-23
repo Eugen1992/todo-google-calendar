@@ -20,7 +20,7 @@ router.post('/',
   (req, res) => {
   createGoogleEvent(req.body, req.accessToken)
     .then((event) => {
-      return todoModel.create({ ...req.body, id: event.id, createdAt: event.createdAt })
+      return todoModel.create(Object.assign(req.body, { id: event.id, createdAt: event.createdAt }))
         .then(() => event);
     })
     .then((event) => {
