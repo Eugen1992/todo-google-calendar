@@ -1,6 +1,5 @@
 const google = require('googleapis');
 const calendar = google.calendar('v3');
-const mapGoogleDataToLocal = require('./map-google-data-to-local.service');
 const authGoogleUser = require('./auth-google-user.service');
 
 module.exports = function (eventId, token) {
@@ -11,13 +10,12 @@ module.exports = function (eventId, token) {
       auth,
       calendarId: 'primary',
       eventId,
-    }, (err, event) => {
+    }, (err) => {
       if (err) {
         console.log('The API returned an error: ' + err);
         return;
       }
-      console.log('The API returned dataa');
-      resolve(event.data);
+      resolve();
     })
   });
 };

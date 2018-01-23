@@ -14,21 +14,23 @@ export default class AddTodo extends React.Component  {
       summary: '',
       description: '',
       startDate: moment(),
+      dueDate: moment(),
       loading: false,
     };
 
     this.onDescriptionChange = this.onDescriptionChange.bind(this);
     this.onSummaryChange = this.onSummaryChange.bind(this);
     this.onDateChange = this.onDateChange.bind(this);
+    this.onDueDateChange = this.onDueDateChange.bind(this);
     this.onSubmit= this.onSubmit.bind(this);
   }
   onSubmit() {
     const { onSubmit } = this.props;
-    const { description, summary, startDate } = this.state;
+    const { description, summary, startDate, dueDate } = this.state;
     const trimmedDescription = description.trim();
 
     if (trimmedDescription) {
-      onSubmit({ description: trimmedDescription, summary, startDate: startDate.format() });
+      onSubmit({ description: trimmedDescription, summary, startDate: startDate.format(), dueDate });
       this.setState({description: '', summary: '', startDate: moment(), isLoading: true });
     }
   }
@@ -41,12 +43,16 @@ export default class AddTodo extends React.Component  {
     this.setState({ description: event.target.value });
   }
 
+  onDueDateChange(dueDate) {
+    this.setState({ dueDate });
+  }
+
   onDateChange(startDate) {
     this.setState({ startDate });
   }
 
   render() {
-    const { description, startDate, summary, isLoading } = this.state;
+    const { description, startDate, dueDate, summary, isLoading } = this.state;
     return (
       <div>
         { isLoading && <Loader />}
@@ -62,6 +68,8 @@ export default class AddTodo extends React.Component  {
         />
         <div className="label">Start date:</div>
         <Datetime open value={startDate} onChange={this.onDateChange} />
+        <div className="label">Due date:</div>
+        <Datetime open value={dueDate} onChange={this.onDueDateChange} />
         <div className="button" onClick={this.onSubmit} > Create </div>
       </div>
     )
