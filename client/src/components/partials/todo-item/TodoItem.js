@@ -16,7 +16,7 @@ export default class TodoItem extends React.Component {
     })
   }
   render() {
-    const { description, id, onRemove, startsAt  } = this.props;
+    const { summary, id, onRemove, startsAt, dueDate } = this.props;
     const { expanded } = this.state;
     const isChecked = new Date(startsAt).getTime() < new Date().getTime();
 
@@ -24,7 +24,7 @@ export default class TodoItem extends React.Component {
       <div className="container">
         <div className="row">
           <input checked={isChecked} type="checkbox" disabled className={isChecked ? 'toggle isChecked' : 'toggle'} />
-          <Link className="description" to={`details/${id}`}>{ description }</Link>
+          <Link className="description" to={`details/${id}`}>{summary}</Link> Due: { dueDate }
           <span className="expand" onClick={this.toggle} />
         </div>
         <span className="close" onClick={onRemove} />

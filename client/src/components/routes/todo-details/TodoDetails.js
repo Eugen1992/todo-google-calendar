@@ -25,6 +25,7 @@ export default class TodoDetails extends React.Component {
       <div>Start date: { moment(startsAt).calendar() }</div><br />
       <div>Created at: { moment(createdAt).calendar() }</div><br />
       <div>Due date: { moment(dueDate).calendar() }</div><br />
+      <button className="button">Edit</button>
     </div>)
   }
 };
