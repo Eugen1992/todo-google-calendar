@@ -17,9 +17,9 @@ export default class TodoItem extends React.Component {
     })
   }
   render() {
-    const { summary, id, onRemove, startsAt, dueDate } = this.props;
+    const { summary, id, onRemove, status, dueDate } = this.props;
     const { expanded } = this.state;
-    const isChecked = new Date(startsAt).getTime() < new Date().getTime();
+    const isChecked = Number(status) === 100;
 
     return (
       <div className="container">
