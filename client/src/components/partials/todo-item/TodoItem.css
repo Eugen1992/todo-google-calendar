@@ -1,10 +1,15 @@
+@charset "UTF-8";
 .container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   position: relative;
   background: white;
-  border-bottom: solid 1px rgba(102, 102, 102, 0.1); }
+  border-bottom: solid 1px rgba(102, 102, 102, 0.1);
+  flex-wrap: wrap; }
+
+.fullLine {
+  flex: 0 0 100%; }
 
 .toggle {
   height: 40px;
@@ -14,7 +19,6 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  margin: auto 0;
   border: none;
   appearance: none;
   cursor: default; }
@@ -26,7 +30,7 @@
 .description {
   white-space: pre-line;
   word-break: break-all;
-  padding: 15px 60px 15px 15px;
+  padding: 15px 20px 15px 15px;
   margin-left: 45px;
   display: block;
   line-height: 1.2; }
@@ -55,3 +59,17 @@
 
 .close:after {
   transform: rotate(-45deg); }
+
+.row {
+  display: flex;
+  flex-direction: row; }
+
+.expand {
+  display: inline-block;
+  margin-top: 2px;
+  transform: rotateZ(90deg);
+  cursor: pointer; }
+  .expand:before {
+    content: '❯';
+    font-size: 22px;
+    color: #e6e6e6; }
