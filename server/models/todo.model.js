@@ -29,12 +29,11 @@ const getByEmail = (email) => {
 const editById = (id, data) => {
   return getMongoConnection().then((mongo) => {
     return new Promise((resolve) => {
-      mongo.collection('todos').updateOne({ id }, { $set: data }).then((result) => {
-
-          return mongo.collection('todos').findOne({ id })
-            .then((result) => {
-              resolve(result);
-            });
+      mongo.collection('todos').updateOne({ id }, { $set: data }).then(() => {
+        return mongo.collection('todos').findOne({ id })
+          .then((result) => {
+            resolve(result);
+          });
       });
     });
   });

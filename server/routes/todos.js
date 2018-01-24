@@ -12,7 +12,7 @@ router.get('/',
   (req, res) => {
     getGoogleEvents(req.accessToken)
       .then(({ events, user }) => {
-          return addLocalTodosData(events, user);
+        return addLocalTodosData(events, user);
       })
       .then((events) => {
         res.send(events);

@@ -11,6 +11,7 @@ export default class EditTodo extends React.Component {
 
     this.onDescriptionChange = this.onFieldChange.bind(this, 'description');
     this.onStatusChange = this.onFieldChange.bind(this, 'status');
+    this.onDueDateChange = this.onDueDateChange.bind(this, 'status');
     this.onSubmit = this.onSubmit.bind(this);
   }
   onFieldChange(fieldName, event) {
